@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+    <style>
+        .chart div{
+            background-color: #c12e2a;
+            margin-bottom: 5px;
+            text-align:right;
+            font: 10px sans-serif;
+            color:white;
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="chart"></div>
+
+
+<script src="//cdn.bootcss.com/d3/4.1.0/d3.js"></script>
+
+<script>
+
+    var data = [4,8,15,16,23,42];
+
+    // linear scale
+    var x = d3.scaleLinear()
+            .domain([0,d3.max(data)])
+            .range([0,420]);
+
+    d3.select(".chart")
+            .selectAll("div")
+            .data(data)
+            .enter()
+            .append("div")
+            .style("width",function(d){return x(d)+"px";})
+            .text(function(d){return d;});
+
+
+</script>
+
+
+</body>
+</html>

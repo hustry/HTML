@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+</head>
+<body>
+
+
+<script src="//cdn.bootcss.com/d3/4.1.0/d3.js"></script>
+
+<script>
+
+    var body = d3.select("body");
+    var div = body.append("div");
+    div.html("Hello,world");
+
+    /* selections: chaining methods */
+
+    d3.select("div").style("color","white").style("background-color","black");
+
+
+</script>
+
+
+</body>
+</html>
