@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
+
+    <style>
+        #graph svg{
+            background-color: papayawhip;
+        }
+
+    </style>
+
+</head>
+<body>
+<div id="graph" class="container">
+
+
+</div>
+
+<script src="//cdn.bootcss.com/d3/3.5.17/d3.js"></script>
+
+<script>
+
+    var svg = d3.select('#graph')
+            .append('svg')
+            .attr('width',1024)
+            .attr('height',768);
+
+    //text
+    svg.append('text')
+            .text("A Pic")
+            .attr({
+                x:0,
+                y:150,
+                'text-anchor':'start'
+            });
+
+    //line
+    svg.append('line')
+            .attr({
+                x1:10,
+                y1:10,
+                x2:100,
+                y2:100,
+                stroke:'blue',
+                'stroke-width':3
+            })
+
+    //rect
+    svg.append('rect')
+            .attr({
+                x:200,
+                y:50,
+                width:300,
+                height:400
+            })
+            .attr({
+                stroke:'green',
+                'stroke-width':2,
+                fill:'white',
+                rx:20,
+                ry:40
+            });
+
+    //circle
+    svg.append('circle')
+            .attr({
+                cx:350,
+                cy:250,
+                r:100,
+                fill:'green',
+                'fill-opacity':0.5,
+                stroke:'steelblue',
+                'stroke-width':2
+            });
+
+    //ellipse
+    svg.append('ellipse')
+            .attr({
+                cx:350,
+                cy:250,
+                rx:150,
+                ry:70,
+                fill:'green',
+                'fill-opacity':0.3,
+                stroke:'steelblue',
+                'stroke-width':2
+            });
+
+    //translate
+    svg.selectAll('rect,circle,ellipse')
+            .attr('transform','translate(150,0)');
+
+    //rotate
+    svg.selectAll('ellipse')
+            .attr('transform','translate(150,0),rotate(-45,350,250)');
+
+    //scale
+    svg.selectAll('ellipse')
+            .attr('transform','translate(150,0) rotate(-45,350,250) scale(1.2) skewY(10)');
+
+    // M, meaning moveto
+    // L, meaning lineto
+    // Z, meaning closepath
+
+    svg.append('path')
+            .attr({
+                d:'M 100 100 L 300 100 L200 300 z',
+                stroke:'black',
+                'stroke-width':2,
+                fill:'red',
+                'fill-opacity':0.7
+            })
+
+
+
+</script>
+
+
+</body>
+</html>
